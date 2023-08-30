@@ -1,0 +1,37 @@
+<h3 [style.color]="selectedColor">Complete Angular Tutorial For Beginners</h3>
+
+<div 
+  *ngFor=" let item of data " 
+  class="item-card" 
+  [style.border-color]="selectedColor === item.color ? selectedColor : 'black'"
+  >
+  <h4> {{item.title}} </h4>
+  <p>{{item.body}}</p>
+  
+  <div [ngSwitch]="item.color">
+    <button 
+      *ngSwitchCase="'red'" 
+      class="red-btn" 
+      (click)="changeBorderColor(item.color)">
+      Set red
+    </button>
+    <button 
+      *ngSwitchCase="'green'" 
+      class="green-btn" 
+      (click)="changeBorderColor(item.color)">
+      Set green
+    </button>
+    <button 
+      *ngSwitchCase="'blue'" 
+      class="blue-btn"
+      (click)="changeBorderColor(item.color)" >
+      Set blue
+    </button>
+    <button 
+      *ngSwitchCase="'orange'" 
+      class="orange-btn" 
+      (click)="changeBorderColor(item.color)">
+      Set orange
+    </button>
+  </div> 
+</div>
